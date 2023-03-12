@@ -31,6 +31,43 @@ local function packer_startup()
     end
   }
 
+  -- Sessions
+  use {
+    'rmagatti/auto-session',
+    config = function ()
+      require'nvg.plugins.auto_session'.init()
+    end
+  }
+
+  -- Git Support
+  use 'rhysd/git-messenger.vim'
+  use 'nvim-lua/plenary.nvim'
+
+   -- Telescope
+  use 'nvim-lua/popup.nvim'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = 'rmagatti/session-lens',
+    config = function ()
+      require'nvg.plugins.telescope'.init()
+    end
+  }
+
+  -- Treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = 'TSUpdate',
+    config = function () 
+      require'nvg.plugins.treesitter'.init()
+    end
+  }
+
+  use 'unblevable/quick-scope'
+  use 'lukas-reineke/indent-blankline.nvim'
+  use 'preservim/nerdcommenter'
+--  use 'romgrk/nvim-treesitter-context'
+  use 'kyazdani42/nvim-web-devicons'
+
 end
 
 local function init()
