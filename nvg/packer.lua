@@ -41,9 +41,17 @@ local function packer_startup()
 
   -- Git Support
   use 'rhysd/git-messenger.vim'
-  use 'nvim-lua/plenary.nvim'
-
-   -- Telescope
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function ()
+      require'nvg.plugins.gitsigns'.init()
+    end
+  }
+  
+  -- Telescope
   use 'nvim-lua/popup.nvim'
   use {
     'nvim-telescope/telescope.nvim',
@@ -62,10 +70,17 @@ local function packer_startup()
     end
   }
 
+--Utils
   use 'unblevable/quick-scope'
   use 'lukas-reineke/indent-blankline.nvim'
+  use {
+    'hoob3rt/lualine.nvim',
+    config = function ()
+      require'nvg.plugins.lualine'.init()
+    end
+  }
   use 'preservim/nerdcommenter'
---  use 'romgrk/nvim-treesitter-context'
+ -- use 'romgrk/nvim-treesitter-context'
   use 'kyazdani42/nvim-web-devicons'
 
 end
