@@ -71,17 +71,23 @@ local function packer_startup()
   }
 
 --Utils
-  use 'unblevable/quick-scope'
-  use 'lukas-reineke/indent-blankline.nvim'
-  use {
-    'hoob3rt/lualine.nvim',
-    config = function ()
-      require'nvg.plugins.lualine'.init()
-    end
-  }
-  use 'preservim/nerdcommenter'
+use 'unblevable/quick-scope'
+use 'lukas-reineke/indent-blankline.nvim'
+use {
+  'hoob3rt/lualine.nvim',
+  config = function ()
+    require'nvg.plugins.lualine'.init()
+  end
+}
+use 'preservim/nerdcommenter'
  -- use 'romgrk/nvim-treesitter-context'
-  use 'kyazdani42/nvim-web-devicons'
+use 'kyazdani42/nvim-web-devicons'
+use {
+  'voldikss/vim-floaterm',
+  config = function ()
+    require'nvg.plugins.floaterm'.init()
+  end
+ }
 
 end
 
